@@ -7,8 +7,7 @@ podTemplate(
             args: '30d'
         )
   ],
-  volumes: [
-      persistentVolumeClaim(claimName: 'maven-pv-claim', mountPath: '/home/linuxadmin/week4/data')
+  workspaceVolume: persistentVolumeClaimWorkspaceVolume(claimName: 'maven-pv-claim', readOnly: false)
       
   ]) {
     node(POD_LABEL) {
